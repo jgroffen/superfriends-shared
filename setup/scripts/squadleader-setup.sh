@@ -26,7 +26,7 @@ PUSH_RECURSE=$(git config --global push.recurseSubmodules)
 if [ "$SUBMODULE_RECURSE" = "true" ] && [ "$PUSH_RECURSE" = "on-demand" ]; then
     echo "✓ Git submodule configuration already set"
 else
-    echo "Superfriends recommends making some changes to your git submodule settings:"
+    echo "SquadLeader recommends making some changes to your git submodule settings:"
     echo ""
     echo "  git config --global submodule.recurse true"
     echo "  git config --global push.recurseSubmodules on-demand"

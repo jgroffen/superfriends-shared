@@ -18,6 +18,8 @@ nvm install node
 # Using pnpm, which is much faster and efficient with disk space, also enforces strict
 # dependency correctness ... no phantom transitive dependencies.
 npm install -g pnpm
+pnpm setup
+source ~/.bashrc
 
 # Installs tsc (typescript compiler) globally
-npm install -g typescript
+pnpm install -g typescript
