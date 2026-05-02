@@ -14,7 +14,7 @@ start_step() {
   local nonewline="${2:-false}"
   CURRENT_STEP="$msg"
   if [[ "$nonewline" == "true" ]]; then
-    printf "[....] %s" "$msg"
+    printf "[....] %s\r" "$msg"
   else
     printf "[....] %s\n" "$msg"
   fi
@@ -52,24 +52,21 @@ install_model() {
   local models
   if ! models="$(ollama list 2>/dev/null)"; then
     # If list failed, treat as not installed
-    printf "\n"
     end_step "ok"
   else
     # Check for exact model name at start of line
     local esc
     esc="$(escape_for_grep_e "$modelName")"
     if printf '%s\n' "$models" | grep -E -q "^${esc}\b"; then
-      printf "\n"
       end_step "skip"
       return 0
     else
-      printf "\n"
       end_step "ok"
     fi
   fi
 
-  start_step "Pulling $friendlyName model"
-  if ollama pull "$modelName" >/dev/null 2>&1; then
+  start_step "Pulling $friendlyName model (ollama pull \"$modelName\")" false
+  if ollama pull "$modelName"; then
     end_step "ok"
     echo "Successfully pulled model: $modelName"
   else
@@ -80,7 +77,7 @@ install_model() {
 }
 
 # --- Step: Detect Ollama ---
-start_step "Checking if Ollama is installed"
+start_step "Checking if Ollama is installed" true
 if command -v ollama >/dev/null 2>&1; then
   end_step skip
 else
