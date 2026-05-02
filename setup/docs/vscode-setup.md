@@ -38,6 +38,7 @@ RL`+`S`) ... then searching for `Terminal in editor`. I am using:
 
 - Better Comments
 - Black Formatter (for Python)
+- Continue (AI Chat Integration)
 - Error Lens
 - ESLint
 - Git Lens

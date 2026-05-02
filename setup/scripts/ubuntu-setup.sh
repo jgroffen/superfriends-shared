@@ -23,3 +23,10 @@ source ~/.bashrc
 
 # Installs tsc (typescript compiler) globally
 pnpm install -g typescript
+
+# Install continue command (cn) - alternative to copilot cli that can use offline models
+curl -fsSL https://raw.githubusercontent.com/continuedev/continue/main/extensions/cli/scripts/install.sh | bash
+
+# Useful service to resolve .local hostnames on the LAN, which the host vm is advertising
+sudo apt install avahi-daemon
+sudo systemctl enable --now avahi-daemon
