@@ -1,10 +1,11 @@
 #!/usr/bin/env pwsh
 
 # --- Color Codes ---
-$GREEN  = "`e[32m"
-$RED    = "`e[31m"
-$YELLOW = "`e[33m"
-$NC     = "`e[0m"
+$ESC = [char]27
+$GREEN  = "$ESC[32m"
+$RED    = "$ESC[31m"
+$YELLOW = "$ESC[33m"
+$NC     = "$ESC[0m"
 
 # --- Status Helpers ---
 function Start-Step($msg) {
@@ -14,9 +15,9 @@ function Start-Step($msg) {
 
 function End-Step($status) {
     switch ($status) {
-        "ok"   { Write-Host "`r[$($GREEN)DONE$NC] $CURRENT_STEP" }
-        "fail" { Write-Host "`r[$($RED)FAIL$NC] $CURRENT_STEP" }
-        "skip" { Write-Host "`r[$($YELLOW)SKIP$NC] $CURRENT_STEP" }
+        "ok"   { Write-Host "`r[$GREEN"  + "DONE$NC] $CURRENT_STEP" }
+        "fail" { Write-Host "`r[$RED"    + "FAIL$NC] $CURRENT_STEP" }
+        "skip" { Write-Host "`r[$YELLOW" + "SKIP$NC] $CURRENT_STEP" }
     }
 }
 
