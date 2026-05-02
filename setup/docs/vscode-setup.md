@@ -44,6 +44,7 @@ RL`+`S`) ... then searching for `Terminal in editor`. I am using:
 - Markdown All in One
 - NPM Intellisense
 - Path Intellisense
+- PowerShell
 - Prettier - Code formatter
 - Pylint
 - Python Language Support
